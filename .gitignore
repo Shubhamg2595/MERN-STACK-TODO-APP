@@ -14,6 +14,8 @@
 #important files
 mern-todo-app/package-lock.json
 mern-todo-app/package.json
+backend/package.json
+backend/package-lock.json
 
 # production
 /build
