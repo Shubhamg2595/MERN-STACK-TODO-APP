@@ -9,6 +9,11 @@ let Todo = require('./todo.model')
 
 app.use(cors());
 app.use(bodyParser.json());
+
+/*
+cors and bodyparser are both middlewares
+*/
+
 mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true })
 const connection = mongoose.connection;
 
