@@ -70,7 +70,7 @@ todoRoutes.route('/update/:id').post(function(req,res){
 
 
 
-app.use('./todos', todoRoutes);
+app.use('/todos', todoRoutes);
 
 app.listen(PORT, function () {
     console.log("Server is running on PORT " + PORT)
