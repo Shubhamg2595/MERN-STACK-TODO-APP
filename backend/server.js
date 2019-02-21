@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require("body-parser")
 const cors = require("cors")
+const path = require("path")
 const mongoose = require("mongoose")
 const PORT = 4000;
 const todoRoutes = express.Router();
@@ -72,7 +73,20 @@ todoRoutes.route('/update/:id').post(function(req,res){
 
 
 
+
+
 app.use('/todos', todoRoutes);
+
+//server static assets if in production
+if(process.env.NODE_ENV === 'production')
+{   
+//set static folder
+    app.use(express.static('client/build'))
+
+    app.get('*',(req,res)=>{
+        res.sendFile(path.todo_responsible(__dirname,'client','build','index.html'))
+    })
+}
 
 app.listen(PORT, function () {
     console.log("Server is running on PORT " + PORT)
